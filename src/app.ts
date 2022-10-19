@@ -11,24 +11,3 @@ const invoker = new CommandInvoker();
 
 const command: ICommand = invoker.createCommand(commandType, args) as ICommand;
 command.execute();
-
-/*
-const promptInput = async() => {
-    const input = prompt({ });
-
-    const args: string[] = input.split(" ");
-    const commandType : Command = args[0] as Command;
-    const invoker = new CommandInvoker();
-
-    const command: ICommand = invoker.createCommand(commandType, args) as ICommand;
-    await command.execute();
-
-    if(commandType === Command.logout) {
-        return;
-    }
-
-    await promptInput();
-}
-
-promptInput();
-*/

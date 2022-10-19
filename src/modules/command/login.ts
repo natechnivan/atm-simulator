@@ -17,6 +17,7 @@ export class LoginCommand implements ICommand {
 		this.setParam();
 		if(this.name === "") {
 			console.log("Please provide user name");
+			return;
 		}
 
 		// 02. Login & create user
@@ -30,7 +31,7 @@ export class LoginCommand implements ICommand {
 	}
 
 	private setParam() {
-		if(this.inputParams[1] === "")
+		if(!this.inputParams[1])
 			return;
         
 		const name: string = this.inputParams[1];

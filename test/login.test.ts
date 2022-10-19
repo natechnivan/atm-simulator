@@ -51,4 +51,19 @@ describe('login chetan', () => {
         expect(consoleSpy.mock.calls[1][0]).toEqual('Your balance is $0');
         expect(writeSpy).toBeCalledTimes(1);
     });
+
+    // Please provide user name
+    it('Login without name', async () => {
+        const consoleSpy = jest.spyOn(console, 'log');
+
+        const userModel = new UserBase("Chetan");
+        userModel.get = jest.fn().mockResolvedValue("");
+        userModel.create = jest.fn().mockResolvedValue({ });
+
+        const command = new LoginCommand(["login",""]);
+        await command.execute();
+
+        expect(consoleSpy).toBeCalledTimes(1);
+        expect(consoleSpy.mock.calls[0][0]).toEqual('Please provide user name');
+    });
 });
